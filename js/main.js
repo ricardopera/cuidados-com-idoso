@@ -147,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            // Get WhatsApp number from data attribute or use default
+            // Get WhatsApp number from data attribute or use placeholder
+            // NOTE: Default is a placeholder - update data-whatsapp attribute in HTML with real number
             const whatsappNumber = contactForm.dataset.whatsapp || '5511999999999';
             
             // Create WhatsApp message
