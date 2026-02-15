@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     const header = document.querySelector('#header');
-    let lastScroll = 0;
     
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
@@ -78,8 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
         }
-        
-        lastScroll = currentScroll;
     });
     
     // ============================================
@@ -153,7 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create WhatsApp message
             const whatsappMessage = `Olá! Meu nome é ${name}.\n\nE-mail: ${email}\nTelefone: ${phone}\n\nMensagem: ${message}`;
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappNumber = '5511999999999'; // Placeholder number
+            // TODO: Replace with actual WhatsApp number before deployment
+            const whatsappNumber = '5511999999999'; // PLACEHOLDER - Update with real number
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             
             // Open WhatsApp in new tab
@@ -177,30 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     });
-    
-    // ============================================
-    // Add CSS for active nav link
-    // ============================================
-    
-    const style = document.createElement('style');
-    style.textContent = `
-        .nav-link.active {
-            color: var(--primary-color);
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    `;
-    document.head.appendChild(style);
 });
 
 // ============================================
