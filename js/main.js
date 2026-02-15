@@ -147,11 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
+            // Get WhatsApp number from data attribute or use default
+            const whatsappNumber = contactForm.dataset.whatsapp || '5511999999999';
+            
             // Create WhatsApp message
             const whatsappMessage = `Olá! Meu nome é ${name}.\n\nE-mail: ${email}\nTelefone: ${phone}\n\nMensagem: ${message}`;
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            // TODO: Replace with actual WhatsApp number before deployment
-            const whatsappNumber = '5511999999999'; // PLACEHOLDER - Update with real number
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             
             // Open WhatsApp in new tab
@@ -169,11 +170,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth Page Load Animation
     // ============================================
     
-    document.body.style.opacity = '0';
+    // Only apply fade-in if JavaScript is enabled
+    document.body.classList.add('js-enabled');
     
     window.addEventListener('load', function() {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
+        document.body.classList.add('page-loaded');
     });
 });
 

@@ -931,6 +931,16 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* Page load animation - only if JavaScript is enabled */
+body.js-enabled {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.js-enabled.page-loaded {
+    opacity: 1;
+}
+
 /* ============================================
    Responsive Design
    ============================================ */
